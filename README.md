@@ -64,3 +64,10 @@ Commands on Xcelium command terminal (can be used instead of buttons)
 source /mnt/cadence_tools/XCELIUM/tools/xcelium/files/xmsimrc
 run
 ```
+
+### Once verification is complete we proceed with RTL Synthesis using Cadence Genus
+
+Use the following command to invoke genus with proper tcl file,which should have a filelist of all the designs and proper constraint and library files.
+```
+genus -f genus_script.tcl
+```
