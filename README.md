@@ -72,9 +72,38 @@ Use the following command to invoke genus with proper tcl file,which should have
 genus -f genus_script.tcl
 ```
 
-
-Here we need to give the design (rtl),liberty file (lib) and sdc contraint files. We set the path as in the tcl script used when invoking genus.<br />
+Here we need to give the design (rtl),liberty file (lib) and sdc constraint files. We set the path as in the tcl script used when invoking genus.<br />
 
 Open sdc file and edit in a text editor prefereably gedit,as there is a chance some extra characters might come up in Libre sheet viewer.<br />
 
 A genus tcl script can be found in the ```synth folder```.<br />
+
+![Screenshot from 2024-07-02 15-14-16](https://github.com/emillal/mem_core/assets/38190245/37850015-70b4-4a7f-9a25-c4579cd4f73d)
+
+The above screeshot shows the synthesis is complete for one design top file (sdrc_top).<br />
+But we are requried to read all the design files(read_hdl) keeping one design as current design in our tcl file,as shown below.<br />
+
+```
+read_hdl sdrc_top.v wb2sdrc.v async_fifo.v sdrc_define.v sdrc_core.v sdrc_bank_ctl.v sdrc_bank_fsm.v sdrc_bs_convert.v sdrc_req_gen.v sdrc_xfr_ctl.v  
+
+elaborate 
+
+read_sdc ../mem_core/Cadence_design_database_45nm/constraints/constraints_top.sdc
+
+#synthesis effort
+set_db syn_generic_effort low
+set_db syn_map_effort low
+set_db syn_opt_effort low
+
+syn_generic
+syn_map
+
+#setting the currrent design
+current_design sdrc_top
+```
+
+The reports are given in ```synth/sdrc_top/reports/``` <br />
+
+It is my assumption that each design files are required to be synthesized individually and would require seperate constraints(.sdc) files. Attaching required files in the synth folder.<br />
+
+
