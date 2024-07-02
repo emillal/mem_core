@@ -1,0 +1,48 @@
+
+create_clock -name sdram_clk -period 20 -waveform {0 10} [get_ports "sdram_clk"]
+set_clock_transition -rise 0.1 [get_clocks "sdram_clk"]
+set_clock_transition -fall 0.1 [get_clocks "sdram_clk"]
+set_clock_uncertainty 0.01 [get_ports "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "sdram_resetn"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_width"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_colbits"] -clock [get_clocks "sdram_clk"]
+
+set_input_delay -max 1.0 [get_ports "wb_rst_i"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "wb_clk_i"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "wb_stb_i"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "wb_addr_i"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "wb_we_i"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "wb_dat_i"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "wb_sel_i"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "wb_cyc_i"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "wb_cti_i"] -clock [get_clocks "sdram_clk"]
+
+set_output_delay -max 1.0 [get_ports "wb_ack_o"] -clock [get_clocks "sdram_clk"]
+set_output_delay -max 1.0 [get_ports "wb_dat_o"] -clock [get_clocks "sdram_clk"]
+
+set_output_delay -max 1.0 [get_ports "sdr_cke"] -clock [get_clocks "sdram_clk"]
+set_output_delay -max 1.0 [get_ports "sdr_cs_n"] -clock [get_clocks "sdram_clk"]
+set_output_delay -max 1.0 [get_ports "sdr_ras_n"] -clock [get_clocks "sdram_clk"]
+set_output_delay -max 1.0 [get_ports "sdr_cas_n"] -clock [get_clocks "sdram_clk"]
+set_output_delay -max 1.0 [get_ports "sdr_we_n"] -clock [get_clocks "sdram_clk"]
+set_output_delay -max 1.0 [get_ports "sdr_dqm"] -clock [get_clocks "sdram_clk"]
+set_output_delay -max 1.0 [get_ports "sdr_ba"] -clock [get_clocks "sdram_clk"]
+set_output_delay -max 1.0 [get_ports "sdr_addr"] -clock [get_clocks "sdram_clk"]
+
+set_output_delay -max 1.0 [get_ports "sdr_dq"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "sdr_dq"] -clock [get_clocks "sdram_clk"]
+
+set_input_delay -max 1.0 [get_ports "cfg_sdr_tras_d"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_trp_d"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_trcd_d"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_en"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_req_depth"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_mode_reg"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_cas"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_trcar_d"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_twr_d"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_rfsh"] -clock [get_clocks "sdram_clk"]
+set_input_delay -max 1.0 [get_ports "cfg_sdr_rfmax"] -clock [get_clocks "sdram_clk"]
+
+set_output_delay -max 1.0 [get_ports "sdr_init_done"] -clock [get_clocks "sdram_clk"]
+
