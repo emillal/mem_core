@@ -71,3 +71,10 @@ Use the following command to invoke genus with proper tcl file,which should have
 ```
 genus -f genus_script.tcl
 ```
+
+
+Here we need to give the design (rtl),liberty file (lib) and sdc contraint files. We set the path as in the tcl script used when invoking genus.<br />
+
+Open sdc file and edit in a text editor prefereably gedit,as there is a chance some extra characters might come up in Libre sheet viewer.<br />
+
+A genus tcl script can be found in the ```synth folder```.<br />
