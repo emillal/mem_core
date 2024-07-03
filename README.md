@@ -107,3 +107,22 @@ The reports are given in ```synth/sdrc_top/reports/``` <br />
 It is my assumption that each design files are required to be synthesized individually and would require seperate constraints(.sdc) files. Attaching required files in the synth folder.<br />
 
 
+The next thing would be sythesizing **wb2sdrc**. It is done and results will be found in ```synth/wb2sdrc/reports/```
+<br />
+A new constraint sdc file had to be used for this module. Seperate netlists are fine in innovus i guess. But what will be done about the constraint files. only one i assume should be required in innovus. Lets see as we go along.<br />
+
+```
+Hierarchy Report Format : 
+ 
+    level instance ( module ) <status>
+ 
+    status :    preserve_<value> -- indicating preserve hierachy or inherited_preserve value
+           :    blackbox --  indicating  unresolved instance
+ 
+==================================================================
+
+ 0 wb2sdrc
+  1 u_rddatafifo ( async_fifo_W33_DP4_WR_FAST1h0_RD_FAST1h1 ) 
+  1 u_wrdatafifo ( async_fifo_W36_DP8_WR_FAST1h0_RD_FAST1h1 ) 
+```
+Similarly for the rest of the modules it will be done and output synthesised netlist will be generated. Checking the timing report weather there is any timing violations or not in thr timing report.<br />
